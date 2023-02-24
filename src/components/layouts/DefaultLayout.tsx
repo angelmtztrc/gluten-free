@@ -1,0 +1,16 @@
+import { Navbar } from '@/molecules';
+
+type DefaultLayoutProps = {
+  children: React.ReactNode;
+};
+
+const DefaultLayout = ({ children }: DefaultLayoutProps) => {
+  return (
+    <div className="min-h-screen bg-darken-900 px-4">
+      {children}
+      <Navbar />
+    </div>
+  );
+};
+
+export default DefaultLayout;

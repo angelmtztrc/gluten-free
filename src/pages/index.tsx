@@ -1,37 +1,10 @@
-import {
-  BuildingStorefrontIcon,
-  FaceFrownIcon,
-  FaceSmileIcon,
-  HomeIcon,
-  QrCodeIcon,
-  ShoppingBagIcon,
-  UserIcon
-} from '@heroicons/react/24/outline';
+import { FaceFrownIcon, FaceSmileIcon } from '@heroicons/react/24/outline';
 
-import { AppBar } from '@/atoms';
+import { DefaultLayout } from '@/layouts';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-darken-900 px-4">
-      <div className="fixed bottom-0 left-0 z-50 w-full px-4 py-2">
-        <nav className="flex h-full w-full items-center justify-around rounded-2xl border border-dark-800 bg-dark-900 px-4 py-2">
-          <div>
-            <HomeIcon className="W-6 h-6 text-white" />
-          </div>
-          <div>
-            <ShoppingBagIcon className="W-6 h-6 text-white" />
-          </div>
-          <div className="rounded-full bg-primary-500 p-4">
-            <QrCodeIcon className="W-6 h-6 text-white" />
-          </div>
-          <div>
-            <BuildingStorefrontIcon className="W-6 h-6 text-white" />
-          </div>
-          <div>
-            <UserIcon className="W-6 h-6 text-white" />
-          </div>
-        </nav>
-      </div>
+    <DefaultLayout>
       <section className="pt-4">
         <div className="rounded-xl bg-dark-900 p-4">
           <div className="flex items-baseline justify-between">
@@ -121,7 +94,7 @@ const HomePage = () => {
           </ul>
         </section>
       </div>
-    </div>
+    </DefaultLayout>
   );
 };
 
