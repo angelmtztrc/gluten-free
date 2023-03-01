@@ -50,7 +50,8 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "react/function-component-definition": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/no-array-index-key": "error"
+    "react/no-array-index-key": "error",
+    "react/require-default-props": "off"
   },
   "overrides": [
     {

@@ -1,6 +1,6 @@
-import { FaceFrownIcon, FaceSmileIcon } from '@heroicons/react/24/outline';
-
+import { KIND } from '@/enums/kind.enum';
 import { DefaultLayout } from '@/layouts';
+import { PlaceItem, ProductItem } from '@/molecules';
 
 const HomePage = () => {
   return (
@@ -39,26 +39,8 @@ const HomePage = () => {
             <p className="text-sm text-secondary-500">See More</p>
           </div>
           <ul className="mt-3 grid w-full grid-cols-2 gap-3">
-            <li className="rounded-xl bg-dark-900 p-3">
-              <figure className="aspect-video rounded-lg bg-secondary-600" />
-              <div className="mt-3">
-                <h3 className="text-lg font-bold text-white">Bananas</h3>
-                <p className="text-xs text-gray-900">7502236566181</p>
-              </div>
-              <div className="mt-3 flex w-full items-center justify-center rounded-lg bg-secondary-500 py-2">
-                <FaceSmileIcon className="h-6 w-6 text-white" />
-              </div>
-            </li>
-            <li className="rounded-xl bg-dark-900 p-3">
-              <figure className="aspect-video rounded-lg bg-secondary-600" />
-              <div className="mt-3">
-                <h3 className="text-lg font-bold text-white">Bananas</h3>
-                <p className="text-xs text-gray-900">7502236566181</p>
-              </div>
-              <div className="mt-3 flex w-full items-center justify-center rounded-lg bg-rose-600 py-2">
-                <FaceFrownIcon className="h-6 w-6 text-white" />
-              </div>
-            </li>
+            <ProductItem name="Fuzetea" code="7501055317875" kind={KIND.FREE} />
+            <ProductItem name="Arizona Te Verde" code="7501055317875" kind={KIND.MAY_CONTAIN} />
           </ul>
         </section>
         <section className="mt-7">
@@ -67,30 +49,16 @@ const HomePage = () => {
             <p className="text-sm text-secondary-500">See More</p>
           </div>
           <ul className="mt-3 grid w-full grid-cols-2 gap-3">
-            <li className="rounded-xl bg-dark-900 p-3">
-              <figure className="aspect-video rounded-lg bg-secondary-600" />
-              <div className="mt-3">
-                <h3 className="text-lg font-bold text-white">Bananas</h3>
-                <p className="text-xs text-gray-900">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni.
-                </p>
-              </div>
-              <div className="mt-3 flex w-full items-center justify-center rounded-lg bg-secondary-500 py-2">
-                <FaceSmileIcon className="h-6 w-6 text-white" />
-              </div>
-            </li>
-            <li className="rounded-xl bg-dark-900 p-3">
-              <figure className="aspect-video rounded-lg bg-secondary-600" />
-              <div className="mt-3">
-                <h3 className="text-lg font-bold text-white">Bananas</h3>
-                <p className="text-xs text-gray-900">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni.
-                </p>
-              </div>
-              <div className="mt-3 flex w-full items-center justify-center rounded-lg bg-rose-600 py-2">
-                <FaceFrownIcon className="h-6 w-6 text-white" />
-              </div>
-            </li>
+            <PlaceItem
+              name="Mostachos"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni."
+              kind={KIND.FREE}
+            />
+            <PlaceItem
+              name="Pollos Hermanos"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni."
+              kind={KIND.FREE}
+            />
           </ul>
         </section>
       </div>
