@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <DefaultLayout>
       <section className="pt-4">
-        <div className="rounded-xl bg-dark-900 p-4">
+        <div className="rounded-xl border border-dark-900 p-4">
           <div className="flex items-baseline justify-between">
             <h2 className="font-bold text-white">Summary</h2>
             <p className="text-xs text-gray-900">20% of the records are Gluten-free</p>

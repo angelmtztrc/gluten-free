@@ -9,7 +9,7 @@ type ProductItemProps = {
 
 const ProductItem = ({ name, code, kind }: ProductItemProps) => {
   return (
-    <li className="rounded-xl bg-dark-900 p-3">
+    <li className="rounded-xl border border-dark-900 p-3">
       <figure className="aspect-video rounded-lg bg-secondary-600" />
       <div className="mt-3">
         <h3 className="text-lg font-bold text-white">{name}</h3>
