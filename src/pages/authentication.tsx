@@ -1,6 +1,17 @@
 import { Button, Input } from '@/atoms';
+import { useAuthForm } from '@/hooks';
 
 const AuthenticatePage = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit: onSubmit
+  } = useAuthForm();
+
+  const handleSubmit = onSubmit(values => {
+    console.log(values);
+  });
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-darken-900 px-4">
       <form className="w-full rounded-xl border border-dark-900 p-6">
@@ -11,10 +22,22 @@ const AuthenticatePage = () => {
               Welcome back you&apos;ve been missed!
             </p>
           </div>
-          <Input id="email" type="text" placeholder="placeholder@email.com" />
-          <Input id="email" type="password" placeholder="**********" />
+          <Input
+            id="email"
+            type="text"
+            placeholder="placeholder@email.com"
+            error={errors.email?.message}
+            {...register('email')}
+          />
+          <Input
+            id="password"
+            type="password"
+            placeholder="**********"
+            error={errors.password?.message}
+            {...register('password')}
+          />
 
-          <Button intent="primary" size="lg">
+          <Button intent="primary" size="lg" onClick={handleSubmit}>
             Sign In
           </Button>
         </div>

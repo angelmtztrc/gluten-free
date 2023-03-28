@@ -52,7 +52,8 @@
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "error",
     "react/require-default-props": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "overrides": [
     {
