@@ -1,5 +1,8 @@
+import { useMutation } from '@tanstack/react-query';
+
 import { Button, Input } from '@/atoms';
 import { useAuthForm } from '@/hooks';
+import { AuthenticationService } from '@/services';
 
 const AuthenticatePage = () => {
   const {
@@ -7,9 +10,16 @@ const AuthenticatePage = () => {
     formState: { errors },
     handleSubmit: onSubmit
   } = useAuthForm();
+  const mutation = useMutation({
+    mutationFn: ({ email, password }: { email: string; password: string }) =>
+      AuthenticationService.authenticate(email as string, password as string),
+    onSuccess: data => {
+      console.log(data);
+    }
+  });
 
-  const handleSubmit = onSubmit(values => {
-    console.log(values);
+  const handleSubmit = onSubmit(async values => {
+    await mutation.mutateAsync({ email: values.email, password: values.password });
   });
 
   return (
