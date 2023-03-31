@@ -28,6 +28,7 @@
       "@/libs/*": ["./src/libs/*"],
       "@/providers": ["./src/providers"],
       "@/services": ["./src/services"],
+      "@/store/*": ["./src/store/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/utils/*": ["./src/utils/*"]
     }
