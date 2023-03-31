@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import '@/styles/globals.css';
 
+import { AuthGuard } from '@/guards';
 import loadFonts from '@/libs/fonts.lib';
 import { queryClient } from '@/libs/query.lib';
 
@@ -12,7 +13,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className={loadFonts}>
-        <Component {...pageProps} />
+        <AuthGuard>
+          <Component {...pageProps} />
+        </AuthGuard>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

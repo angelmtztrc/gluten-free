@@ -53,7 +53,8 @@
     "react/no-array-index-key": "error",
     "react/require-default-props": "off",
     "react/display-name": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "class-methods-use-this": "off"
   },
   "overrides": [
     {

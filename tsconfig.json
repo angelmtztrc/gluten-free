@@ -20,6 +20,7 @@
       "@/layouts": ["./src/components/layouts"],
       "@/molecules": ["./src/components/molecules"],
       "@/organisms": ["./src/components/organisms"],
+      "@/constants/*": ["./src/constants/*"],
       "@/enums/*": ["./src/enums/*"],
       "@/guards": ["./src/guards"],
       "@/hooks": ["./src/hooks"],

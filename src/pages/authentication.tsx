@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { useMutation } from '@tanstack/react-query';
 
 import { Button, Input } from '@/atoms';
@@ -10,11 +12,12 @@ const AuthenticatePage = () => {
     formState: { errors },
     handleSubmit: onSubmit
   } = useAuthForm();
+  const router = useRouter();
   const mutation = useMutation({
     mutationFn: ({ email, password }: { email: string; password: string }) =>
       AuthenticationService.authenticate(email as string, password as string),
-    onSuccess: data => {
-      console.log(data);
+    onSuccess: () => {
+      router.push('/');
     }
   });
 
