@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
+
+import { Scanner } from '@codesaursx/react-scanner';
+
 import { KIND } from '@/enums/kind.enum';
 import { DefaultLayout } from '@/layouts';
 import { PlaceItem, ProductItem } from '@/molecules';
 
 const HomePage = () => {
+  useEffect(() => {
+    navigator.permissions.query({ name: 'camera' }).then(() => console.log('good'));
+  }, []);
+
   return (
     <DefaultLayout>
       <section className="pt-4">
@@ -62,6 +70,14 @@ const HomePage = () => {
           </ul>
         </section>
       </div>
+      <Scanner
+        width="400px"
+        height="400px"
+        delay={800}
+        onUpdate={(e, data) => {
+          console.log(e, data);
+        }}
+      />
     </DefaultLayout>
   );
 };
