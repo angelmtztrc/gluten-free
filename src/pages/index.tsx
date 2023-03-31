@@ -7,10 +7,6 @@ import { DefaultLayout } from '@/layouts';
 import { PlaceItem, ProductItem } from '@/molecules';
 
 const HomePage = () => {
-  useEffect(() => {
-    navigator.permissions.query({ name: 'camera' }).then(() => console.log('good'));
-  }, []);
-
   return (
     <DefaultLayout>
       <section className="pt-4">
