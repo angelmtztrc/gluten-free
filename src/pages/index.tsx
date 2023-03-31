@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Scanner } from '@codesaursx/react-scanner';
 
 import { KIND } from '@/enums/kind.enum';
@@ -5,6 +7,7 @@ import { DefaultLayout } from '@/layouts';
 import { PlaceItem, ProductItem } from '@/molecules';
 
 const HomePage = () => {
+  const [code, setCode] = useState('');
   return (
     <DefaultLayout>
       <section className="pt-4">
@@ -69,9 +72,10 @@ const HomePage = () => {
         height="400px"
         delay={800}
         onUpdate={(e, data) => {
-          console.log(e, data);
+          setCode(data?.getText() ?? '');
         }}
       />
+      <p>{code}</p>
     </DefaultLayout>
   );
 };
