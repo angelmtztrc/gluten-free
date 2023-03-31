@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Scanner } from '@codesaursx/react-scanner';
 
 import { KIND } from '@/enums/kind.enum';
