@@ -75,7 +75,7 @@ const HomePage = () => {
           setCode(data?.getText() ?? '');
         }}
       />
-      <p>{code}</p>
+      <p>code: {code}</p>
     </DefaultLayout>
   );
 };

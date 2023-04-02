@@ -9,10 +9,10 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@codesaursx/react-scanner@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@codesaursx/react-scanner/-/react-scanner-0.1.0.tgz#33da83f20dedf5d3ef13dfa7b68ef5162c1d26a1"
-  integrity sha512-D4KZetUm6aXwOYegNCIY+1X8bFqfKN97CckFsMq6XY3g25ODQf6eemg9FBY+2grJHQj+nzwTDCZqsUJZgKKnUQ==
+"@codesaursx/react-scanner@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@codesaursx/react-scanner/-/react-scanner-1.0.0.tgz#69ff3558a501d5db422f887723f3cbe4b3e64692"
+  integrity sha512-B8IaOu0cgD1bKlB0aARW9jbsxG+o3WpMxVjtLHKDDjDXctXW2wx397Mfxbk/swMJLw5tUl2HXWpt/uT0RtyhSw==
   dependencies:
     "@zxing/library" "^0.19.2"
     react-webcam "^7.0.1"
