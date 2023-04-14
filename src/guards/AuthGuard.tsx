@@ -17,6 +17,7 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
   const setActualUser = useUserStore(state => state.setActualUser);
 
   useEffect(() => {
+    setIsLoading(true);
     onAuthStateChanged(authentication, user => {
       const isAuthenticated = Boolean(user?.uid);
       if (user)
@@ -32,7 +33,6 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
     });
   }, [router, setActualUser]);
 
-  // TODO: BETTER LOADING
   if (isLoading) return <p>is loading...</p>;
 
   return <div>{children}</div>;

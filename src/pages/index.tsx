@@ -1,13 +1,7 @@
-import { useState } from 'react';
-
-import { Scanner } from '@codesaursx/react-scanner';
-
-import { KIND } from '@/enums/kind.enum';
 import { DefaultLayout } from '@/layouts';
-import { PlaceItem, ProductItem } from '@/molecules';
+import { PlaceSlider, ProductSlider } from '@/organisms';
 
 const HomePage = () => {
-  const [code, setCode] = useState('');
   return (
     <DefaultLayout>
       <section className="pt-4">
@@ -38,44 +32,9 @@ const HomePage = () => {
         </div>
       </section>
       <div className="mt-6">
-        <section>
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-xl font-bold text-white">Products</h2>
-            <p className="text-sm text-secondary-500">See More</p>
-          </div>
-          <ul className="mt-3 grid w-full grid-cols-2 gap-3">
-            <ProductItem name="Fuzetea" code="7501055317875" kind={KIND.FREE} />
-            <ProductItem name="Arizona Te Verde" code="7501055317875" kind={KIND.MAY_CONTAIN} />
-          </ul>
-        </section>
-        <section className="mt-7">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-xl font-bold text-white">Places</h2>
-            <p className="text-sm text-secondary-500">See More</p>
-          </div>
-          <ul className="mt-3 grid w-full grid-cols-2 gap-3">
-            <PlaceItem
-              name="Mostachos"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni."
-              kind={KIND.FREE}
-            />
-            <PlaceItem
-              name="Pollos Hermanos"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem omnis magni."
-              kind={KIND.FREE}
-            />
-          </ul>
-        </section>
+        <ProductSlider />
+        <PlaceSlider />
       </div>
-      <Scanner
-        width="400px"
-        height="400px"
-        delay={800}
-        onUpdate={(e, data) => {
-          setCode(data?.getText() ?? '');
-        }}
-      />
-      <p>code: {code}</p>
     </DefaultLayout>
   );
 };
