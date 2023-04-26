@@ -17,7 +17,12 @@ const App = ({ Component, pageProps }: AppProps) => {
         <AuthGuard>
           <Component {...pageProps} />
         </AuthGuard>
-        <Toaster theme="dark" richColors position="top-right" />
+        <Toaster
+          richColors
+          position="top-center"
+          theme="dark"
+          toastOptions={{ className: '!rounded-lg' }}
+        />
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

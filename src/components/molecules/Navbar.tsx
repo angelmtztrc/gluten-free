@@ -5,6 +5,7 @@ import {
   ShoppingBagIcon,
   UserIcon
 } from '@heroicons/react/24/outline';
+import { toast } from 'sonner';
 
 import { IconButton } from '@/atoms';
 
@@ -18,7 +19,12 @@ const Navbar = () => {
         <IconButton>
           <ShoppingBagIcon className="h-6 w-6 text-white" />
         </IconButton>
-        <IconButton intent="primary" rounded="full" size="lg">
+        <IconButton
+          intent="primary"
+          rounded="full"
+          size="lg"
+          onClick={() => toast.success('Hi! Everything working just fine.')}
+        >
           <QrCodeIcon className="h-6 w-6 text-white" />
         </IconButton>
         <IconButton>

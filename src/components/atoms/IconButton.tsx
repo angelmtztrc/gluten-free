@@ -32,9 +32,9 @@ interface IconButtonProps extends ComponentPropsWithRef<'button'>, StylesProps {
   children: ReactNode;
 }
 
-const IconButton = ({ intent, size, rounded, className, children }: IconButtonProps) => {
+const IconButton = ({ intent, size, rounded, className, children, ...rest }: IconButtonProps) => {
   return (
-    <button type="button" className={cls(styles({ intent, size, rounded, className }))}>
+    <button {...rest} type="button" className={cls(styles({ intent, size, rounded, className }))}>
       {children}
     </button>
   );
