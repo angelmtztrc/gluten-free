@@ -7,7 +7,7 @@ import { Button, Input } from '@/atoms';
 import { useAuthForm } from '@/hooks';
 import { AuthenticationService } from '@/services';
 
-const AuthenticatePage = () => {
+const RegisterPage = () => {
   const {
     register,
     formState: { errors },
@@ -16,12 +16,12 @@ const AuthenticatePage = () => {
 
   const mutation = useMutation({
     mutationFn: ({ email, password }: { email: string; password: string }) =>
-      AuthenticationService.authenticate(email as string, password as string),
+      AuthenticationService.register(email, password),
     onSuccess: () => {
-      toast.success('You logged in successfully.');
+      toast.success('Account created successfully.');
     },
     onError: () => {
-      toast.error('Something went wrong trying to sign in, try later.');
+      toast.error('Something went wrong creating your account, try later.');
     }
   });
 
@@ -34,9 +34,9 @@ const AuthenticatePage = () => {
       <form className="w-full rounded-xl border border-dark-900 p-6">
         <div className="flex flex-col space-y-4">
           <div className="mb-4 flex flex-col items-center justify-center">
-            <h1 className="mt-4 text-center text-xl font-bold text-white">Sign In</h1>
+            <h1 className="mt-4 text-center text-xl font-bold text-white">Sign Up</h1>
             <p className="mt-2 w-3/5 text-center text-gray-900">
-              Welcome back you&apos;ve <br /> been missed!
+              Welcome, create an account to get started!
             </p>
           </div>
           <Input
@@ -55,12 +55,13 @@ const AuthenticatePage = () => {
           />
 
           <Button intent="primary" size="lg" onClick={handleSubmit}>
-            Sign In
+            Create Account
           </Button>
+
           <p className="text-greyish-900">
-            New here?{' '}
-            <Link href="/register" className="text-primary-400">
-              Create an account
+            Already have an account?{' '}
+            <Link href="/authentication" className="text-primary-400">
+              Log in
             </Link>
           </p>
         </div>
@@ -69,4 +70,4 @@ const AuthenticatePage = () => {
   );
 };
 
-export default AuthenticatePage;
+export default RegisterPage;
