@@ -54,7 +54,8 @@
     "react/require-default-props": "off",
     "react/display-name": "off",
     "import/no-extraneous-dependencies": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "overrides": [
     {

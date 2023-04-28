@@ -9,6 +9,7 @@ import '@/styles/globals.css';
 import { AuthGuard } from '@/guards';
 import loadFonts from '@/libs/fonts.lib';
 import { queryClient } from '@/libs/query.lib';
+import { CreatedDialog } from '@/organisms';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -23,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           theme="dark"
           toastOptions={{ className: '!rounded-lg' }}
         />
+        <CreatedDialog />
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -6,7 +6,7 @@ import { NextShield } from 'next-shield';
 
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '@/constants/routes.constants';
 import { authentication } from '@/libs/firebase.lib';
-import useUserStore from '@/store/useUserStore';
+import { useUserStore } from '@/store';
 
 type AuthGuardProps = {
   children: React.ReactNode;
