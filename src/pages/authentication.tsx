@@ -21,7 +21,7 @@ const AuthenticatePage = () => {
       toast.success('You logged in successfully.');
     },
     onError: () => {
-      toast.error('Something went wrong trying to sign in, try later.');
+      toast.error('Invalid email or password. Please check your credentials and try again.');
     }
   });
 
