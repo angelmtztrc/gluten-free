@@ -4,8 +4,12 @@ import { PlaceFormProps } from 'src/hooks/usePlaceForm';
 import { IPlace } from '@/interfaces/place.interface';
 import { database } from '@/libs/firebase.lib';
 
+interface CreatePlacePayload extends PlaceFormProps {
+  userId: string;
+}
+
 class PlacesService {
-  async create(payload: PlaceFormProps): Promise<IPlace> {
+  async create(payload: CreatePlacePayload): Promise<IPlace> {
     const docRef = await addDoc(collection(database, 'places'), {
       ...payload,
       createdAt: Timestamp.fromDate(new Date())

@@ -6,14 +6,17 @@ import { PlaceFormProps } from 'src/hooks/usePlaceForm';
 
 import { Button, GlutenKindSelector, Input } from '@/atoms';
 import { usePlaceForm } from '@/hooks';
+import { IUser } from '@/interfaces/user.interface';
 import { PlacesService } from '@/services';
-import { useDialogStore } from '@/store';
+import { useDialogStore, useUserStore } from '@/store';
 
 const PlaceForm = () => {
+  const user = useUserStore(state => state.user) as IUser;
   const [setIsDialogOpen, setDialogTitleAndDescription] = useDialogStore(state => [
     state.setIsOpen,
     state.setTitleAndDescription
   ]);
+
   const {
     register,
     formState: { errors },
@@ -22,7 +25,7 @@ const PlaceForm = () => {
   } = usePlaceForm();
 
   const mutation = useMutation({
-    mutationFn: (payload: PlaceFormProps) => PlacesService.create(payload),
+    mutationFn: (payload: PlaceFormProps) => PlacesService.create({ ...payload, userId: user.uid }),
     onSuccess: () => {
       toast.success('Place created successfully.');
     },

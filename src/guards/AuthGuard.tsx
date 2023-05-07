@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { onAuthStateChanged } from 'firebase/auth';
 import { NextShield } from 'next-shield';
 
+import { Loading } from '@/atoms';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '@/constants/routes.constants';
 import { authentication } from '@/libs/firebase.lib';
 import { useUserStore } from '@/store';
@@ -43,7 +44,7 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
       publicRoutes={PUBLIC_ROUTES}
       accessRoute="/"
       loginRoute="/authentication"
-      LoadingComponent={<p>Loading...</p>}
+      LoadingComponent={<Loading />}
     >
       {children}
     </NextShield>
