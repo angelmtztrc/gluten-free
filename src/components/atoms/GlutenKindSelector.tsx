@@ -8,6 +8,8 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import { Control, useController } from 'react-hook-form';
 import { PlaceFormProps } from 'src/hooks/usePlaceForm';
 
+import { KIND } from '@/enums/kind.enum';
+
 type GlutenKindSelectorProps = {
   control: Control<PlaceFormProps, any>;
   error?: string;
@@ -25,24 +27,24 @@ const GlutenKindSelector = ({ control, error }: GlutenKindSelectorProps) => {
         ref={field.ref}
       >
         <label
-          htmlFor="product"
+          htmlFor={KIND.FREE}
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dark-900 p-4 hover:bg-primary-500 hover:bg-opacity-10 [&:has([data-state=checked])]:border-secondary-500"
         >
-          <RadioGroup.Item value="product" id="product" className="sr-only" />
+          <RadioGroup.Item value={KIND.FREE} id={KIND.FREE} className="sr-only" />
           <FaceSmileIcon className="h-8 w-8 text-secondary-500" />
         </label>
         <label
-          htmlFor="place"
+          htmlFor={KIND.MAY_CONTAIN}
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dark-900 p-4 hover:bg-primary-500 hover:bg-opacity-10 [&:has([data-state=checked])]:border-amber-500"
         >
-          <RadioGroup.Item value="place" id="place" className="sr-only" />
+          <RadioGroup.Item value={KIND.MAY_CONTAIN} id={KIND.MAY_CONTAIN} className="sr-only" />
           <ExclamationTriangleIcon className="h-8 w-8 text-amber-500" />
         </label>
         <label
-          htmlFor="place"
+          htmlFor={KIND.CONTAINS}
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dark-900 p-4 hover:bg-primary-500 hover:bg-opacity-10 [&:has([data-state=checked])]:border-rose-500"
         >
-          <RadioGroup.Item value="place" id="place" className="sr-only" />
+          <RadioGroup.Item value={KIND.CONTAINS} id={KIND.CONTAINS} className="sr-only" />
           <FaceFrownIcon className="h-8 w-8 text-rose-500" />
         </label>
       </RadioGroup.Root>

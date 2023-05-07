@@ -1,9 +1,9 @@
 import { KIND } from '@/enums/kind.enum';
 
-export interface IProduct {
+export interface IPlace {
   id: string;
   name: string;
-  code: string;
+  description: string;
   kind: KIND;
   createdAt: Date;
 }

@@ -1,17 +1,35 @@
 import { useEffect } from 'react';
 
+import { useMutation } from '@tanstack/react-query';
+import { toast } from 'sonner';
+import { PlaceFormProps } from 'src/hooks/usePlaceForm';
+
 import { Button, GlutenKindSelector, Input } from '@/atoms';
 import { usePlaceForm } from '@/hooks';
+import { PlacesService } from '@/services';
 import { useDialogStore } from '@/store';
 
 const PlaceForm = () => {
-  const setDialogTitleAndDescription = useDialogStore(state => state.setTitleAndDescription);
+  const [setIsDialogOpen, setDialogTitleAndDescription] = useDialogStore(state => [
+    state.setIsOpen,
+    state.setTitleAndDescription
+  ]);
   const {
     register,
     formState: { errors },
     handleSubmit: onSubmit,
     control
   } = usePlaceForm();
+
+  const mutation = useMutation({
+    mutationFn: (payload: PlaceFormProps) => PlacesService.create(payload),
+    onSuccess: () => {
+      toast.success('Place created successfully.');
+    },
+    onError: () => {
+      toast.error('Something went wrong creating the place, try again.');
+    }
+  });
 
   useEffect(() => {
     setDialogTitleAndDescription(
@@ -21,7 +39,8 @@ const PlaceForm = () => {
   }, []);
 
   const handleSubmit = onSubmit(async values => {
-    console.log(values);
+    await mutation.mutateAsync({ ...values });
+    setIsDialogOpen(false);
   });
 
   return (
@@ -47,8 +66,13 @@ const PlaceForm = () => {
       {/* ADDRESS? */}
       {/* TODO: PICTURE */}
       <div className="w-full">
-        <Button intent="primary" className="w-full" onClick={handleSubmit}>
-          Create
+        <Button
+          intent="primary"
+          className="w-full"
+          onClick={handleSubmit}
+          disabled={mutation.isLoading}
+        >
+          {mutation.isLoading ? 'Loading...' : 'Create'}
         </Button>
       </div>
     </form>

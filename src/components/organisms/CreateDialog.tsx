@@ -28,16 +28,19 @@ const CreateDialog = () => {
     }
   }, [scannedData]);
 
-  const handleHidden = () => {
-    setIsDialogOpen(false);
-    setTimeout(() => {
+  useEffect(() => {
+    if (isDialogOpen) {
       setItemType('');
       setStep('selection');
       setDialogTitleAndDescription(
         'Add an item',
         'Please select the type of entity you want to create.'
       );
-    }, 500);
+    }
+  }, [isDialogOpen]);
+
+  const handleHidden = () => {
+    setIsDialogOpen(false);
   };
 
   const handleSelectType = (type: AvailableItemTypes) => {
