@@ -5,7 +5,7 @@ import { cva, VariantProps } from 'cva';
 import { cls } from '@/libs/cls.lib';
 
 const styles = cva(
-  'w-full rounded-lg bg-dark-900 px-4 border border-transparent py-2 text-gray-200 outline-none placeholder:text-gray-900'
+  'w-full rounded-lg bg-dark-900 px-4 border border-transparent py-2 text-gray-200 outline-none placeholder:text-gray-900 mt-1'
 );
 
 type StylesProps = VariantProps<typeof styles>;
@@ -21,7 +21,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ id, label, className, error, ...rest }, ref) => {
     return (
       <div className="flex flex-col">
-        {label && <label htmlFor={id}>{label}</label>}
+        {label && (
+          <label className="text-xs uppercase text-gray-900" htmlFor={id}>
+            {label}
+          </label>
+        )}
         <input
           id={id}
           ref={ref}
