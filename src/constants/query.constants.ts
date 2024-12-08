@@ -1,1 +1,2 @@
 export const IS_AUTHENTICATED_KEY = 'IS_AUTHENTICATED';
+export const GET_PLACES_KEY = 'GET_PLACES';

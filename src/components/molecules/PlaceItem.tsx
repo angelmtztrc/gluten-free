@@ -14,7 +14,7 @@ const PlaceItem = ({ name, description, kind }: PlaceItemProps) => {
         <figure className="aspect-video rounded-lg bg-secondary-600" />
         <div className="mt-3">
           <h3 className="text-lg font-bold text-white">{name}</h3>
-          <p className="text-xs text-gray-900">{description}</p>
+          <p className="line-clamp-4 text-xs text-gray-900">{description}</p>
         </div>
       </div>
       <GlutenIndicator className="mt-3" kind={kind} />
